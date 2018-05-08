@@ -1,0 +1,34 @@
+<html>
+	<head>
+		<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	</head>
+
+test
+
+<script>
+	app={
+		do:{
+			login:function(){
+				$.ajax({
+					"xhrFields": { withCredentials: true },
+					"url": "https://api.platinumstrade.com/account/logon",
+					"method": "POST",
+					"data": {"email":"nasigj@gmail.com","password":"Nasigjymi2018"}
+				}).done(function (response,status,xhr) {
+					console.log(response);
+					console.log(status);
+					console.log(xhr);
+				});
+			},
+			logout:function(){
+				$.post('https://api.platinumstrade.com/account/logoff', function(response) {
+					console.log(response);
+				});
+			},
+			registration:function(){
+				console.log('registration');
+			}
+		}
+	}
+</script>
+</html>

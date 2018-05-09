@@ -877,7 +877,7 @@ by contacting  'The Bitcoin Code'  as described above.  'The Bitcoin Code'  will
         </div>
         <div class="form-group">
             <div>
-<img style="float: left; padding-right: 5px" id="captcha_img_abuse" src="../securimage/securimage_show.php%3Fnamespace=abuse&amp;amp%3B995bf3d2bafa69be17b1bd37c1c76219" alt="CAPTCHA Image" /><div id="captcha_img_abuse_audio_div">
+<div id="captcha_img_abuse_audio_div">
 <audio id="captcha_img_abuse_audio" preload="none" style="display: none">
 <source id="captcha_img_abuse_source_wav" src="../securimage/securimage_play.php%3Fnamespace=abuse&amp;id=5af06e1394560" type="audio/wav">
 <object type="application/x-shockwave-flash" data="../securimage/securimage_play.swf%3Fbgcol=%2523ffffff&amp;icon_file=%252Fsecurimage%252Fimages%252Faudio_icon.png&amp;audio_file=%252Fsecurimage%252Fsecurimage_play.php%253Fnamespace%253Dabuse%2526" height="32" width="32"><param name="movie" value="/securimage/securimage_play.swf?bgcol=%23ffffff&amp;icon_file=%2Fsecurimage%2Fimages%2Faudio_icon.png&amp;audio_file=%2Fsecurimage%2Fsecurimage_play.php%3Fnamespace%3Dabuse%26" /></object><br /></audio>
@@ -889,8 +889,6 @@ by contacting  'The Bitcoin Code'  as described above.  'The Bitcoin Code'  will
 </a>
 <noscript>Enable Javascript for audio controls</noscript>
 </div>
-<script type="text/javascript" src="../securimage/securimage.js"></script>
-<script type="text/javascript">captcha_img_abuse_audioObj = new SecurimageAudio({ audioElement: 'captcha_img_abuse_audio', controlsElement: 'captcha_img_abuse_audio_controls' });</script>
 <a tabindex="-1" style="border: 0" href="../index.html#" title="Refresh Image" onclick="if (typeof window.captcha_img_abuse_audioObj !== 'undefined') captcha_img_abuse_audioObj.refresh(); document.getElementById('captcha_img_abuse').src = '/securimage/securimage_show.php?namespace=abuse&amp;' + Math.random(); this.blur(); return false"><img height="32" width="32" src="../securimage/images/refresh.png" alt="Refresh Image" onclick="this.blur()" style="border: 0px; vertical-align: bottom" /></a><br /><div style="clear: both"></div><label for="abuse_captcha">Type the text:</label> <input type="text" name="captcha_code_abuse" id="abuse_captcha" />            </div>
 
         </div>
@@ -902,7 +900,7 @@ by contacting  'The Bitcoin Code'  as described above.  'The Bitcoin Code'  will
             </button>
         </div>
 <input type="hidden" name="Referer" id="Referer" value="" >
-<input type="hidden" name="IP" id="IP" value="185.30.147.75" >
+<input type="hidden" name="IP" id="IP" value="" >
 <input type="hidden" name="UA" id="UA" value="mozilla" >
 <input type="hidden" name="get" id="get" value="" >
 
@@ -918,100 +916,7 @@ by contacting  'The Bitcoin Code'  as described above.  'The Bitcoin Code'  will
 </div>
 
 
-
-<script>
-var dd = [];
-$(document).ready(function() {
-    $('form#abuse').submit(function( event ) {
-        console.log('form#abuse');
-    //alert( "Handler for .submit() called." );
-    //event.preventDefault();
-        $('#errormessages').empty();
-        for(var k in ['fname', 'lname', 'email', 'ReportSubject', 'ReportDetails', 'Reason']){
-            $('div.form-group.'+['fname', 'lname', 'email', 'ReportSubject', 'ReportDetails', 'Reason'][k]).removeClass('has-error');
-        }
-
-
-
-        //$('#submitabuse').attr('disabled', true);
-
-        var data = new FormData();
-
-        data.append( 'fname', $('#fname').val());
-        data.append( 'lname', $('#lname').val());
-        data.append( 'email', $('#email').val());
-        data.append( 'ReportDetails', $("#ReportDetails").val());
-        data.append( 'ReportSubject', $("#ReportSubject").val());
-        data.append( 'Reason', $("#Reason").val());
-        data.append( 'Referer', $("#Referer").val());
-        data.append( 'IP', $("#IP").val());
-        data.append( 'UA', $("#UA").val());
-        data.append( 'get', $("#get").val());
-        data.append( 'captcha_code', $("input[name=captcha_code_abuse]").val());
-        data.append( 'file_attach', $('input[name=file_attach]')[0].files[0]);
-        dd = data;
-        xhr = $.ajax({
-            type: "POST",
-            url: "/members/index.php",
-            data: data,
-/*
-            {
-                    fname   : $("#fname").val(),
-                    lname   : $("#lname").val(),
-                    email   : $("#email").val(),
-                    ReportDetails : $("#ReportDetails").val(),
-                    ReportSubject : $("#ReportSubject").val(),
-
-                    Reason  : $("#Reason").val(),
-                    Referer : $("#Referer").val(),
-                    oIP      : $("#IP").val(),
-                    get     : $("#get").val(),
-                    captcha_code : $("#captcha_code").val(),
-                    file_attach : $('input[name=file_attach]')[0].files[0]
-            },
-*/
-              processData: false,
-              contentType: false,
-
-            dataType: "json",
-            success: function(msg){
-                console.log(msg);
-                $('#submitabuse').attr('disabled', false);
-                if(msg.answer!='ok'){
-                    var text = "";
-                    if(msg.reason.length){
-                        //$('#errormessages').empty();
-                        //for(var k in msg.reason){
-                            
-                        //}
-                        $('#errormessages').append('<div class="alert alert-danger alert-sm"><button type="button" class="close" data-dismiss="alert">&times;</button> <strong>Please correct the following fields before continuing:</strong> \n<br>'+msg.reason.join("\n<br>")+'</div>');
-                    
-                        if(msg.actions.length){
-                            for(var k in msg.actions){
-                                $('div.form-group.'+msg.actions[k]).addClass('has-error');
-                            }
-                        }
-                    }
-                }
-                else{
-                    $('#errormessages').append('<div class="alert alert-success alert-sm"><button type="button" class="close" data-dismiss="alert">&times;</button> <strong>Thank you:</strong> \n<br>'+msg.reason.join("\n<br>")+'</div>');
-
-                    
-                }
-                if (typeof window.captcha_image_audioObj !== 'undefined') 
-                    captcha_image_audioObj.refresh(); 
-                    document.getElementById('captcha_img_abuse').src = '/securimage/securimage_show.php?' + Math.random();
-            }
-        });
-
-        return false;
-
-
-    });
-
-    //$('#Reason').select2();
-});
-</script>                    
+                 
                 </div>
             </div>
         </div>
@@ -1050,7 +955,7 @@ $(document).ready(function() {
               <div class="video-wrapper">
                 <div class="video">
                   <div class="embed-responsive embed-responsive-16by9">
-                    <iframe width="640" height="360" src="/video.php?link=bitcoin_02&amp;poster=poster2&amp;autoplay=1&amp;p=2" frameborder="0" allowfullscreen=""></iframe>
+                    <iframe width="640" height="360" src="../video.php%3Flink=bw_01_en&poster=poster1_en&autoplay=1&p=2.html" frameborder="0" allowfullscreen=""></iframe>
                   </div>
                 </div>
 
@@ -1103,7 +1008,7 @@ $(document).ready(function() {
                             </div>
                         </div>
                         <div class="form-actions">
-                            <button type="submit" class="button button-primary register-btn"> Get Started Now </button>
+                            <button type="submit" class="button button-primary register-btn  reg-btn-0"> Get Started Now </button>
                         </div>
                         <input name="TiReg[0][ot]" id="ti0form-ot" value="0f68b744b1ce8941cb68d151a8c34d35" type="hidden">
                         <input type="hidden" name="TiReg[0][vtype]" id="ti0form-vtype" value="reg">
@@ -1194,15 +1099,6 @@ $(document).ready(function() {
         </div>
     </div>
 </section>
-
-
-
-
-
-
-
-
-
 
 
     <div class="section section-members-profits">
@@ -15150,7 +15046,7 @@ $(document).ready(function() {
 <div class="scroll-form" id="scrollForm">
     <div class="scroll-form-content">
 
-        <div class="form-container-unique ti-form-1" id="form44"><div class="title"></div> <form id="ti-1-form" action="" method="POST"><div class="form-group field-ti1form-first_name"> <label for="ti1form-first_name" class="control-label"> First Name </label> <input type="text" name="TiReg[1][first_name]" id="ti1form-first_name" class="form-control" placeholder="First Name"> <p class="help-block help-block-error"></p></div><div class="form-group field-ti1form-last_name"> <label for="ti1form-last_name" class="control-label"> Last Name </label> <input type="text" name="TiReg[1][last_name]" id="ti1form-last_name" class="form-control" placeholder="Last Name"> <p class="help-block help-block-error"></p> </div> <div class="form-group field-ti1form-email"> <label for="ti1form-email" class="control-label"> Email </label> <input type="email" name="TiReg[1][email]" id="ti1form-email" class="form-control" placeholder="Email"> <p class="help-block help-block-error"></p> </div> <div class="form-group field-ti1form-password"> <label for="ti1form-password" class="control-label"> Password </label> <input type="password" name="TiReg[1][password]" id="ti1form-password" class="form-control" placeholder="Password"> <p class="help-block help-block-error"></p> </div> <div class="row"> <div class="col-xs-4"> <div class="form-group field-ti1form-area_code"> <label for="ti1form-area_code" class="control-label"> Area Code </label> <input type="text" name="TiReg[1][area_code]" id="ti1form-area_code" class="form-control" placeholder="Area Code"> <p class="help-block help-block-error"></p> </div> </div> <div class="col-xs-8"> <div class="form-group field-ti1form-phone"> <label for="ti1form-phone" class="control-label"> Phone </label> <input type="text" name="TiReg[1][phone]" id="ti1form-phone" class="form-control" placeholder="Phone"> <p class="help-block help-block-error"></p> </div> </div> </div> <div class="form-actions"> <button type="submit" class="button button-primary register-btn"> Get Started Now </button> </div> <input name="TiReg[1][ot]" id="ti1form-ot" value="0f68b744b1ce8941cb68d151a8c34d35" type="hidden"><input type="hidden" name="TiReg[1][vtype]" id="ti1form-vtype" value="reg">
+        <div class="form-container-unique ti-form-1" id="form44"><div class="title"></div> <form id="ti-1-form" action="" method="POST"><div class="form-group field-ti1form-first_name"> <label for="ti1form-first_name" class="control-label"> First Name </label> <input type="text" name="TiReg[1][first_name]" id="ti1form-first_name" class="form-control" placeholder="First Name"> <p class="help-block help-block-error"></p></div><div class="form-group field-ti1form-last_name"> <label for="ti1form-last_name" class="control-label"> Last Name </label> <input type="text" name="TiReg[1][last_name]" id="ti1form-last_name" class="form-control" placeholder="Last Name"> <p class="help-block help-block-error"></p> </div> <div class="form-group field-ti1form-email"> <label for="ti1form-email" class="control-label"> Email </label> <input type="email" name="TiReg[1][email]" id="ti1form-email" class="form-control" placeholder="Email"> <p class="help-block help-block-error"></p> </div> <div class="form-group field-ti1form-password"> <label for="ti1form-password" class="control-label"> Password </label> <input type="password" name="TiReg[1][password]" id="ti1form-password" class="form-control" placeholder="Password"> <p class="help-block help-block-error"></p> </div> <div class="row"> <div class="col-xs-4"> <div class="form-group field-ti1form-area_code"> <label for="ti1form-area_code" class="control-label"> Area Code </label> <input type="text" name="TiReg[1][area_code]" id="ti1form-area_code" class="form-control" placeholder="Area Code"> <p class="help-block help-block-error"></p> </div> </div> <div class="col-xs-8"> <div class="form-group field-ti1form-phone"> <label for="ti1form-phone" class="control-label"> Phone </label> <input type="text" name="TiReg[1][phone]" id="ti1form-phone" class="form-control" placeholder="Phone"> <p class="help-block help-block-error"></p> </div> </div> </div> <div class="form-actions"> <button type="submit" class="button button-primary register-btn reg-btn-1"> Get Started Now </button> </div> <input name="TiReg[1][ot]" id="ti1form-ot" value="0f68b744b1ce8941cb68d151a8c34d35" type="hidden"><input type="hidden" name="TiReg[1][vtype]" id="ti1form-vtype" value="reg">
  <input name="TiReg[1][answer]" id="ti1form-answer" value="" type="hidden"><input name="TiReg[1][token]" id="ti1form-token" value="1e11da4849b088cb32ab25fb40b4c545" type="hidden"><input name="sid" value="fo5amruk65f5l9tfpm8145vq45" type="hidden"><input name="TiReg[1][ip]" id="ti1form-ip" value="185.30.147.75" type="hidden"></form> <div class="ti-message-wrapper overlay-wrapper"><div class="overlay-content"></div><div class="buttons"><a href="" class="close-overlay">Close <i class="fa fa-check"></i></a></div></div><div class="progress-overlay overlay-wrapper"> Registration in progress, please wait...</div><div class="success-overlay overlay-wrapper"><div class="title">You trading account has been created with </div><div class="description">Redirecting To Broker...</div></div></div>
 
 
@@ -15254,11 +15150,9 @@ function winners(){
         cf = lf;
     }
     */
-    console.log(cf);
     $(name).html(names[n]+' '+"ABCDEFGHIJKLMNOPQRSTUVWXYZ".substr(rand(0,25),1)+'.');
     //cf = 
-    face.attr('src', '../images/media/0'+n+'.jpg');
-    console.log(face.n);
+   // face.attr('src', '../images/media/0'+n+'.jpg');
     $('.block-hidden.first').addClass('shown');
     setTimeout('winners()', rand(70000,100000));
 }

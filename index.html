@@ -1047,30 +1047,17 @@ $(document).ready(function() {
                         <div class="subtitle">
                             This is Your <b>LAST CHANCE</b> to Join <b><i>Bitcoins Wealth</i></b> and secure your financial future.
                         </div>
-
                     </div>
-
                 </div>
                 <div class="popup-form-wrapper">
-                    <form action="members/?br=no&amp;ot=0f68b744b1ce8941cb68d151a8c34d35&amp;lang=en&amp;offer_id=0&amp;aff_id=0" method="post" onsubmit="if(!(/^[+a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i.test($('#emailpu').val()))){
-        alert('Please enter a valid email');
-        $('#emailpu').focus();
-        return false;
-      }
-      else{
-        if(onsubmitfix){
-          yesyoucan = 0;
-          onsubmitfix = 0;
-        }
-        else return false;
-      }" class="popup_form" name="popform" id="popform">
+                    <form action="" method="GET" class="popup_form e_form" name="popform" id="popform">
                         <div class="form-group">
                             <label for="" class="control-label"></label>
-                            <input type="text" name="email" placeholder="Your Email" id="emailpu" class="form-control input-email" value="" />
+                            <input type="text" name="email" placeholder="Your Email" id="emailpu" class="form-control input-email e_email" value="" />
                         </div>
 
                         <div class="buttons">
-                            <button type="submit" class="button big-button" id="exitsubmit" xonclick="$('#popform').submit();">Get Started Now</button>
+                            <button type="submit" class="button big-button e_submit" id="exitsubmit" >Get Started Now</button>
                         </div>
                     </form>
                 </div>
@@ -1132,35 +1119,24 @@ $(document).ready(function() {
 
 <div class="form-container-unique ti-form-1" id="form1">
 
-    <form action="members/?br=no&amp;ot=0f68b744b1ce8941cb68d151a8c34d35&amp;lang=en&amp;offer_id=0&amp;aff_id=0" method="post" onsubmit="if(!(/^[+a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i.test($('#emailpu2').val()))){
-        alert('Please enter a valid email');
-        $('#emailpu2').focus();
-        return false;
-      }
-      else{
-        if(onsubmitfix){
-          yesyoucan = 0;
-          onsubmitfix = 0;
-        }
-        else return false;
-      }" class="popup_form" name="popform" id="popform">
+    <form action=""  method="post" class="popup_form main_from" name="popform" id="popform">
 
         <div class="form-group field-ti0form-first_name">
             <label for="name2" class="control-label">
-                Your Name
+                Your Namef
             </label>
-            <input name="name" id="name2" class="form-control" placeholder="Your Name" type="text">
+            <input name="name" id="name2" class="form-control main-name" placeholder="Your Name" type="text">
         </div>
         <div class="form-group field-ti0form-email ">
             <label for="emailpu2" class="control-label">
                 Your Email
             </label>
-            <input  name="email" placeholder="Your Email" id="emailpu2" class="form-control" p type="email">
+            <input  name="email" placeholder="Your Email" id="emailpu2" class="form-control main-email" p type="email">
             <p class="help-block help-block-error"></p>
         </div>
 
         <div class="form-actions">
-            <button type="submit" class="button register-btn" id="reButt">
+            <button type="submit" class="button register-btn main-submit_btn" id="reButt">
                 Get Started Now
             </button>
         </div>
@@ -1339,34 +1315,23 @@ $(document).ready(function() {
     <div class="footer-content">
 
       <div class="top-form-wrapper" style="margin-bottom:20px;">
-        <form action="members/?br=no&amp;ot=0f68b744b1ce8941cb68d151a8c34d35&amp;lang=en&amp;offer_id=0&amp;aff_id=0" method="post" onsubmit="if(!(/^[+a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i.test($('#emailpu2').val()))){
-            alert('Please enter a valid email');
-            $('#emailpu2').focus();
-            return false;
-          }
-          else{
-            if(onsubmitfix){
-              yesyoucan = 0;
-              onsubmitfix = 0;
-            }
-            else return false;
-          }" class="popup_form" name="popform" id="popform">
+        <form action="" method="post"  class="popup_form footer-form" name="popform" id="popform">
 
             <div class="form-group field-ti0form-first_name">
                 <!-- label for="name2" class="control-label">
                     Your Name
                 </label -->
-                <input name="name" id="name2" class="form-control" placeholder="Your Name" type="text">
+                <input name="name" id="name2" class="form-control footer-name" placeholder="Your Name" type="text">
             </div>
             <div class="form-group field-ti0form-email ">
                 <!-- label for="emailpu2" class="control-label">
                     Your Email
                 </label -->
-                <input  name="email" placeholder="Your Email" id="emailpu2" class="form-control" p type="email">
+                <input  name="email" placeholder="Your Email" id="emailpu2" class="form-control footer-email" p type="email">
             </div>
 
             <div class="form-actions">
-                <button type="submit" class="button register-btn" id="reButt">
+                <button type="submit" class="button register-btn reg-btn-footer" id="reButt">
                     Get Started Now
                 </button>
             </div>
@@ -1441,7 +1406,7 @@ $(document).ready(function() {
             <div class="col-md-4 col-sm-6">
                 <div class="buttons">
 
-                    <a class="button scroll-form-button">get started Now</a>
+                    <button class="button scroll-form-button">get started Now</button>
                 </div>
             </div>
         </div>
@@ -1450,8 +1415,6 @@ $(document).ready(function() {
 
 
 <script type="text/javascript" src="js/scripts.js%3F123"></script>
-
-<script id="welcomescript" src="https://awidget.org/stats/welcome.php?br=no&amp;ot=0f68b744b1ce8941cb68d151a8c34d35&amp;lang=en&amp;offer_id=0&amp;aff_id=0"></script>
 
 <script>
 var ot = '0f68b744b1ce8941cb68d151a8c34d35';
@@ -1488,71 +1451,6 @@ var tt = 0;
         setTimeout(function(){$('.block-hidden.secondary').addClass('shown');}, getRandomInt(3000, 6000));
 
     }
-
-
-
-
-
-
-
-
-
-yesyoucan = 1;
-
-window.onunload = window.onbeforeunload = function (evt) {
-    var message = '***************************************\n\n W A I T   B E F O R E   Y O U   G O !\n\n       How About I Give My Private software for FREE?\n\n  CLICK THE *CANCEL* BUTTON RIGHT NOW\n     TO STAY ON THE CURRENT PAGE.\n\n***************************************';
-
-
-
-    var ni = new Image();
-    ni.src = '//awidget.org/stats/welcome.php?ot='+window.ot+'&tick='+window.tt;   
-
-      
-    if (typeof evt == "undefined") {
-        evt = window.event;
-    }
-    //console.log('2. ' + yesyoucan);
-  if(yesyoucan){
-      if (evt) {
-          evt.returnValue = message;
-
-      }
-      reloadpage();
-      return message;
-
-  }
-
-}
-onsubmitfix = 1;
-
-
-var ajaxwork = false;
-function reloadpage(){
-  var currentdata = {};
-
-  ajaxwork = $.ajax({
-    url: "/en/exit-page-body.php?br=no&pi=185.30.147.75&ot=0f68b744b1ce8941cb68d151a8c34d35&lang=en&offer_id=0&aff_id=0",
-    success: function(bdy){
-      //if(msg.answer=='ok'){
-
-      $('body').empty();
-      $('body').append(bdy);
-      $('body').addClass('exit-page');
-
-      //fullheightCalc();
-
-//console.log(msg);
-      //}
-    },
-    error: function (xhr, ajaxOptions, thrownError) {
-
-    }
-  });//.abort()
-}
-
-
-
-
 
 // exit popup
 var mousebottom = 0;
@@ -1651,7 +1549,7 @@ function winners(){
     //console.log(cf);
     $(name).html(names[n]+' '+"ABCDEFGHIJKLMNOPQRSTUVWXYZ".substr(rand(0,25),1)+'.');
     //cf = 
-    face.attr('src', '/images_w/media/0'+n+'.jpg');
+    //face.attr('src', '/images_w/media/0'+n+'.jpg');
     //console.log(face.n);
     $('.block-hidden.first').addClass('shown');
     setTimeout('winners()', rand(70000,100000));

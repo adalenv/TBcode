@@ -1,0 +1,107 @@
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <base href="">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    	<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+	<script type="text/javascript" src="../js/jquery.min.js"></script>
+</head>
+
+<body>
+    <app-root ng-version="4.4.6">
+        <!---->
+        <router-outlet class=""></router-outlet>
+        <app-admin-layout class="ng-tns-c1-0">
+            <div class="   default" id="theme-config">
+                <div class="ng-tns-c1-0" id="wrapper">
+                    
+                    <nav class="navbar  navbar-default" style="margin:10px;background: #f5f5f5;border: 0 !important">
+                      <div class="container-fluid" >
+                        <!-- Brand and toggle get grouped for better mobile display -->
+                        <div class="navbar-header">
+                          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                          </button>
+                          <a class="navbar-brand" href="#"><img class="logo" style="width: 200px;height: 20px" alt="" id="logo-icon" tabindex="0" src="../images/logo.png"></a>
+                        </div>
+
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                          <ul class="nav navbar-nav">
+                            <li class=""><a href="#">Signals </a></li>
+                            <li class=""><a href="#">Brokers </a></li>
+                            <li class=""><a href="../deposit">Brokers account </a></li>
+                            <li class="active"><a href="">Settings </a></li>
+                            <li class=""><a href="#">Faq </a></li>
+                          </ul>
+                          <ul class="nav navbar-nav navbar-right">
+                            <li class="dropdown">
+                              <a href="#" class="dropdown-toggle user-name" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <span class="caret"></span></a>
+                              <ul class="dropdown-menu">
+                                <li><a class="logout-btn">Logout</a></li>
+                              </ul>
+                            </li>
+                          </ul>
+                        </div><!-- /.navbar-collapse -->
+                      </div><!-- /.container-fluid -->
+                    </nav>
+                    <style type="text/css">
+                        .navbar-inverse .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover {
+                            color: black !important;
+                        }
+                        .navbar-inverse .navbar-toggle .icon-bar {
+                        background-color: #333 !important;
+                        }
+
+                    </style>
+
+
+                    <div class="page-wrapper" style="min-height: 1019px;">
+
+                            <router-outlet class="ng-tns-c1-0"></router-outlet>
+                            <app-wrapper _nghost-c4="">
+                                <app-spinner _ngcontent-c4="" class="iframe-spinner">
+                                    <!---->
+
+                                    <!---->
+                                </app-spinner>
+
+                                <!---->
+                                <iframe _ngcontent-c4="" id="iframe" style="width: 100%;height: 100%" frameborder="0" src="https://myaccount.platinumstrade.com/#personal"></iframe>
+
+                                <form _ngcontent-c4="" method="POST" novalidate="" target="iframe" action="https://myaccount.platinumstrade.com/#personal"></form>
+
+                                <!---->
+                            </app-wrapper>
+
+                        <footer class="footer t-a-c"> © 2018 Bitcoins Wealth</footer>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <app-intro-modal class="ng-tns-c1-0 ng-tns-c2-1" _nghost-c2="">
+                <!---->
+            </app-intro-modal>
+            <app-force-deposit-modal class="ng-tns-c1-0" _nghost-c3="">
+                <!---->
+            </app-force-deposit-modal>
+        </app-admin-layout>
+        <!---->
+        <app-spinner class="spinner-box" style="height: 1079px;">
+            <!---->
+
+            <!---->
+        </app-spinner>
+        <ng2-toasty>
+            <div id="toasty" class="toasty-position-top-center">
+                <!---->
+            </div>
+        </ng2-toasty>
+    </app-root>
+    <script type="text/javascript" src="../mod.js"></script>

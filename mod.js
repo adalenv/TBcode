@@ -1,11 +1,18 @@
 	app={
-		var:{
-			domain:"192.168.1.222",
-			path:"thebitcoincode.com"
+		config:{
+			domain 	: "192.168.1.222",
+			path 	: "thebitcoincode.com",
+			localStorage: "mmUserName",
+			ajax:{
+				ipInfo 	: 'https://ipapi.co/json',
+				login 	: 'https://api.platinumstrade.com/account/logon',
+				logout 	: 'https://api.platinumstrade.com/account/logoff',
+				register: 'https://api.platinumstrade.com/Registration/Full',
+			},
 		},
 		do:{
 			getInfo:function(){
-				$.get('https://ipapi.co/json', function(data) {
+				$.get(app.config.ajax.ipInfo, function(data) {
 					getInfo=data;
 					$('#ti0form-area_code').val(data.country_calling_code);
 					$('#ti1form-area_code').val(data.country_calling_code);
@@ -14,14 +21,14 @@
 			login:function(email,password){
 				$.ajax({
 					"xhrFields": { withCredentials: true },
-					"url": "https://api.platinumstrade.com/account/logon",
+					"url": app.config.ajax.login,
 					"method": "POST",
-					"data": {	"email":email,
-								"password":password
+					"data": {	"email"    : email,
+								"password" : password
 							}
 				}).done(function (response,status,xhr) {
 					if (status="success") {
-						window.localStorage.setItem("mmUserName",response.firstName+' '+response.lastName);
+						window.localStorage.setItem(app.config.localStorage,response.firstName+' '+response.lastName);
 						app.do.goto("deposit");
 					}
 				}).fail(function(response){
@@ -34,11 +41,11 @@
 			logout:function(){
 				$.ajax({
 					"xhrFields": { withCredentials: true },
-					"url": "https://api.platinumstrade.com/account/logoff",
+					"url": app.config.ajax.logout,
 					"method": "POST",
 				})
 				.done(function(response) {
-					window.localStorage.removeItem("mmUserName");
+					window.localStorage.removeItem(app.config.localStorage);
 					app.do.goto("login");
 				})
 				.fail(function() {
@@ -47,7 +54,7 @@
 			},
 			registration:function(i){//1 top , 0 main
 				$.ajax({
-					url: 'https://api.platinumstrade.com/Registration/Full',
+					url: app.config.ajax.register,
 					type: 'GET',
 					xhrFields: { withCredentials: true },
 					data:{	
@@ -88,8 +95,8 @@
 					event.preventDefault();
 					$('.footer-form').attr('action',action+'&full_name='+$('.footer-name').val()+'&email='+$('.footer-email').val() );
 						if(!(/^[+a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i.test($('.footer-email').val()))){
-				        alert('Please enter a valid email');
-				        $('.footer-form').focus();
+				        	alert('Please enter a valid email');
+				       		$('.footer-form').focus();
 				        return false;
 				      }
 					$('.footer-form').submit();
@@ -146,27 +153,37 @@
 						}
 						$('.reg-btn-0').on('click',function(event) {
 							event.preventDefault();
-							app.do.registration(0);
+							if ( !(/^[a-zA-Z]+$/.test($('#ti0form-first_name').val())) ||
+								 !(/^[a-zA-Z]+$/.test($('#ti0form-last_name').val())) ) {
+								alert('The name isn`t not valid');
+							} else{
+								app.do.registration(0);	
+							}
 						});
 						$('.reg-btn-1').on('click',function(event) {
 							event.preventDefault();
-							app.do.registration(1);
+							if ( !(/^[a-zA-Z]+$/.test($('#ti1form-first_name').val())) || 
+								 !(/^[a-zA-Z]+$/.test($('#ti1form-last_name').val())) ) {
+								alert('The name isn`t not valid');
+							} else{
+								app.do.registration(1);	
+							}
 						});
 					break;
 					case "deposit":
-						if (!localStorage.getItem("mmUserName")) {
+						if (!localStorage.getItem(app.config.localStorage)) {
 							app.do.goto("login");
 							return;
 						}
-						$('.user-name').text(window.localStorage.getItem("mmUserName"));
+						$('.user-name').text(window.localStorage.getItem(app.config.localStorage));
 						$('#logout-btn').on('click',function(event) {
 							event.preventDefault();
 							app.do.logout();
 						});
 					break;
 					case "":
-					case app.var.path:
-					case app.var.domain:
+					case app.config.path:
+					case app.config.domain:
 						app.do.main();
 					break;
 				}

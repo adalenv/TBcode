@@ -181,6 +181,9 @@
 							app.do.logout();
 						});
 					break;
+					case "settings":
+						$('.user-name').text(window.localStorage.getItem(app.config.localStorage));
+					break;
 					case "":
 					case app.config.path:
 					case app.config.domain:

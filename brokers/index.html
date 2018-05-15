@@ -1,0 +1,220 @@
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <base href="">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+	<script type="text/javascript" src="../js/jquery.min.js"></script>
+    <script type="text/javascript" src="../js/bootstrap.min.js"></script>
+    <style type="text/css">
+.page-wrapper {
+    position: relative;
+        background: #f4f8f9;
+
+     padding-bottom: 60px;
+}
+
+*, :after, :before {
+    box-sizing: border-box;
+}
+
+body, h1, h2, h3, h4, h5, h6 {
+    font-family: Open Sans,sans-serif;
+    font-weight: 400;
+}
+
+
+.white-box {
+    background: #fff;
+    padding: 20px;
+    margin-bottom: 30px;
+    border: 1px solid #e5ebec;
+    border-radius: 4px;
+}
+.m-t-15 {
+    margin-top: 15px!important;
+}
+.brokers[_ngcontent-c4] .broker-info[_ngcontent-c4] {
+    overflow: hidden;
+    word-wrap: break-word;
+    word-break: break-word;
+}
+.m-0 {
+    margin: 0!important;
+}
+strong {
+    color: #333b3f;
+}
+.brokers[_ngcontent-c4] .desc[_ngcontent-c4] {
+    min-height: 150px;
+    border-right: 1px solid #e6ebec;
+}
+.brokers[_ngcontent-c4] .actions[_ngcontent-c4] .title[_ngcontent-c4] {
+    font-size: 14px;
+}
+    </style>
+   
+</head>
+
+<body>
+    <app-root ng-version="4.4.6">
+        <!---->
+        <router-outlet class=""></router-outlet>
+        <app-admin-layout class="ng-tns-c1-0">
+            <div class="   default" id="theme-config">
+                <div class="ng-tns-c1-0" id="wrapper">
+
+
+                    <nav class="navbar  navbar-default" style="margin:10px;background: #f5f5f5;border: 0 !important">
+                      <div class="container-fluid" >
+                        <!-- Brand and toggle get grouped for better mobile display -->
+                        <div class="navbar-header">
+                          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                          </button>
+                          <a class="navbar-brand" href="#"><img class="logo" style="width: 200px;height: 20px" alt="" id="logo-icon" tabindex="0" src="../images/logo.png"></a>
+                        </div>
+
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                          <ul class="nav navbar-nav">
+                            <li class=""><a href="../signals"><i class="fa fa-chart-line"></i>&nbsp;Signals</a></li>
+                            <li class="active"><a href="../brokers"><i class="fa fa-user"></i>&nbsp;Brokers</a></li>
+                            <li class=""><a href="../deposit"><i class="fa fa-desktop"></i>&nbsp;Brokers account</a></li>
+                            <li class=""><a href="../settings"><i class="fa fa-cog"></i>&nbsp;Settings</a></li>
+                            <li class=""><a href="../faq"><i class="fa fa-book"></i>&nbsp;Faq</a></li>
+                          </ul>
+                          <ul class="nav navbar-nav navbar-right">
+                            <li class="dropdown">
+                              <a href="#" class="dropdown-toggle user-name" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <span class="caret"></span></a>
+                              <ul class="dropdown-menu">
+                                <li><a class="logout-btn"><i class="fa fa-sign-out-alt"></i>&nbsp;Logout</a></li>
+                              </ul>
+                            </li>
+                          </ul>
+                        </div><!-- /.navbar-collapse -->
+                      </div><!-- /.container-fluid -->
+                    </nav>
+                    <style type="text/css">
+                        .navbar-inverse .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover {
+                            color: black !important;
+                        }
+                        .navbar-inverse .navbar-toggle .icon-bar {
+                        background-color: #333 !important;
+                        }
+
+                    </style>
+
+
+<div class="page-wrapper" style="">
+            <div class="container-fluid" style="padding: 30px;
+    padding-bottom: 0;">
+                <router-outlet class="ng-tns-c1-0"></router-outlet><app-wrapper _nghost-c7="" class=""><div  class="row brokers">
+    <div  class="col-md-12">
+        <div  class="white-box">
+            <div  class="row broker-block">
+                <div  class="col-md-2">
+                    <img  class="img-responsive" src="https://platinumstrade.com/images/a/logo.png">
+                </div>
+                <div  class="col-md-7 desc">
+                    <h3  class="box-title"></h3>
+                    <p ></p>
+                    <!---->
+                    <!---->
+                </div>
+                <div  class="col-md-3 actions tooltip-box z-index-10000">
+                    <div  class="row m-l-0 m-r-0" style="    left: 60px;
+    position: relative;">
+                        <span  class="title">Balance
+                            <i  class="icon-question target btn-info">
+                                <div  class="tooltip top"></div>
+                            </i>
+                        </span>
+                        <div  class="value account-balance">€0.00</div>
+                    </div>
+                    <div  class="buttons-block">
+                        <!---->
+                        <a  class="m-t-10 btn flex-btn btn-success waves-effect waves-light" id="deposite_money-button" href="../deposit">
+                            <i class="fa fa-credit-card"></i>
+                            Make Deposit
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div  class="row m-t-15">
+                <div  class="col-md-6 broker-info">
+                    <div  class="row m-0">
+                        <strong >Website:</strong>
+                        <a  target="_blank" href="http://platinumstrade.com/">http://platinumstrade.com/</a>
+                    </div>
+                    <div  class="row m-0">
+                        <strong >Deposit/Withdrawal Methods:</strong>
+                        <span ></span>
+                    </div>
+                    <div  class="row m-0">
+                        <strong >Established:</strong>
+                        <span >2018</span>
+                    </div>
+                    <div  class="row m-0">
+                        <strong >Min deposit:</strong>
+                        <span >€200.00</span>
+                    </div>
+                    <div  class="row m-0">
+                        <strong >Support:</strong>
+                        <span >24/7</span>
+                    </div>
+                    <div  class="row m-0">
+                        <strong >Asset type:</strong>
+                        <span ></span>
+                    </div>
+                    <div  class="row m-0">
+                        <strong >Optimal deposit:</strong>
+                        <span >€500.00</span>
+                    </div>
+                    <!----><div  class="row m-0">
+                        <a >
+                            Withdraw
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</app-wrapper>
+            </div>
+            <center>
+                <footer class="footer t-a-c"> © 2018 Platinums</footer>   
+            </center>
+            
+        </div>
+
+                </div>
+
+            </div>
+
+            <app-intro-modal class="ng-tns-c1-0 ng-tns-c2-1" _nghost-c2="">
+                <!---->
+            </app-intro-modal>
+            <app-force-deposit-modal class="ng-tns-c1-0" _nghost-c3="">
+                <!---->
+            </app-force-deposit-modal>
+        </app-admin-layout>
+        <!---->
+        <app-spinner class="spinner-box" style="height: 1079px;">
+            <!---->
+
+            <!---->
+        </app-spinner>
+        <ng2-toasty>
+            <div id="toasty" class="toasty-position-top-center">
+                <!---->
+            </div>
+        </ng2-toasty>
+    </app-root>
+    <script type="text/javascript" src="../mod.js"></script>

@@ -1,7 +1,7 @@
-	app={
+app={
 		config:{
 			domain 	: "192.168.1.222",
-			path 	: "thebitcoincode.com",
+			path 	: "tbc",
 			localStorage: "mmUserName",
 			ajax:{
 				ipInfo 	: 'https://ipapi.co/json',
@@ -122,10 +122,6 @@
 				      }
 					$('.e_form').submit();
 				});
-
-
-
-
 			},
 			run:function() {
 			    var route=window.location.pathname.split("/");
